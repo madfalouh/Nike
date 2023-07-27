@@ -1,0 +1,42 @@
+.login-first-section-container {
+height: 100vh;
+width: 25vw;
+text-align: left;
+}
+
+.login-first-section-body {
+display: flex;
+flex-direction: column;
+align-items :flex-start ; 
+justify-content: center;
+}
+
+.login-section-sign-in button svg {
+font-size: 1.21rem;
+}
+
+.login-section-sign-in > p {
+color: grey;
+font-weight: 100;
+}
+
+.login-or-line {
+display: inline-flex;
+gap: 20px;
+align-items: center;
+}
+.login-line {
+background-color: black;
+height: 1px;
+width: 100px;
+}
+
+.login-input-body {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 30px;
+flex-direction: column;
+}
+
+.login-input 
