@@ -1,6 +1,6 @@
 .login-container {
   display: grid;
-  margin-left: 10%;
+  margin-left: 18%;
   gap: 200px;
   grid-template-columns: 23% auto; 
 }
