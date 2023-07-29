@@ -4,8 +4,8 @@ function Text_Input(props) {
   const { text, placeholder } = props;
   return (
     <div className="login-input text">
-      <label>{text}</label>
-      <input type="text" placeholder={placeholder} />
+      <label>{text}<span>*</span>  </label>
+      <input type="text" placeholder={placeholder}  />
     </div>
   );
 }
