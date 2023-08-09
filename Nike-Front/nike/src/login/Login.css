@@ -1,6 +1,29 @@
 .login-container {
   display: grid;
-  margin-left: 18%;
-  gap: 200px;
-  grid-template-columns: 23% auto; 
+  width: 100%;
+  align-items: center;
+  gap: 14%; 
+  grid-template-columns: 30% auto; 
+}
+
+
+
+@media (max-width: 700px) {
+  .login-container {
+    padding: 50px;
+    grid-template-columns: 1fr; 
+    gap: 50px; 
+
+  }
+.login-first-section-container {
+  order: 2; 
+
+}
+}
+
+
+@media (min-width: 1500px) {
+.login-container {
+  grid-template-columns: 25% auto; 
+}
 }
