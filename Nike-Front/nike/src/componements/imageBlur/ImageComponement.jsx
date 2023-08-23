@@ -24,7 +24,8 @@ function ImageComponent({ src, blur }) {
         width="100%"
         height="100%"
         style={{
-          opacity: isLoaded ? 0 : 1
+          opacity: isLoaded ? 0 : 1 ,
+         transition: 'opacity 0.5s ease-in-out'
         }}
       />
       <img
@@ -36,7 +37,9 @@ function ImageComponent({ src, blur }) {
           left: 0,
           width: '100%',
           height: '100%',
-          opacity: isLoaded ? 1 : 0
+          opacity: isLoaded ? 1 : 0 ,
+         transition: 'opacity 0.5s ease-in-out' 
+
         }}
       />
     </div>

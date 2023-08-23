@@ -9,7 +9,7 @@
 
 
 
-@media (max-width: 700px) {
+@media (max-width: 745px) {
   .login-container {
     padding: 50px;
     grid-template-columns: 1fr; 
