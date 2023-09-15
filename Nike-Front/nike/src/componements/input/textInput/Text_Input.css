@@ -6,7 +6,7 @@ gap: 5px;
 }
 .login-input  input {
 outline: none;
-border-radius: 16px ; 
+border-radius: 6px ; 
 border : 0.5px solid black ; 
 height: 3rem;
 font-size: 0.875rem;
@@ -40,4 +40,23 @@ color: #9ca1b2;
   right: 20px;
   transform: translateY(-50%);
 }
+
+.err-msg{
+  gap: 8px;
+  display: flex;
+  flex-direction: row;
+align-items: center;
+  color: #D32F2F;
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-left: 10px;
+}
+
+
+.err-msg  p {
+
+font-weight: 500;
+
+}
+
 

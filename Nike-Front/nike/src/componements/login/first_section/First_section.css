@@ -95,7 +95,7 @@
 
 
 .login-forgot-password span {
-    color: #000000;
+    color: #0062ff;
     cursor: pointer;
     font-weight: 600;
     font-size: 0.875rem;
@@ -120,7 +120,7 @@
 }
 
 .login-not-registred span {
-    color: #000000;
+    color: #0062ff;
     font-weight: 600;
     font-size: 0.875rem;
     cursor: pointer;
@@ -133,7 +133,7 @@
 
 
     .login-first-section-container {
-        margin-left: 0%;
+        margin: 0;
     }
 
 }

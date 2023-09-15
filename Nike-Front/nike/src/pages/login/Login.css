@@ -1,9 +1,8 @@
 .login-container {
-  overflow-y: hidden;
   display: grid;
   width: 100%;
   align-items: center;
-  gap: 14%; 
+  gap: 20%; 
   grid-template-columns: 30% auto; 
 }
 
@@ -11,15 +10,10 @@
 
 @media (max-width: 745px) {
   .login-container {
-    padding: 50px;
+    padding: 40px;
     grid-template-columns: 1fr; 
-    gap: 50px; 
-
+    gap:1px; 
   }
-.login-first-section-container {
-  order: 2; 
-
-}
 }
 
 

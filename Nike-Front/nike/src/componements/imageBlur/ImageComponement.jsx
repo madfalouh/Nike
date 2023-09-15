@@ -16,7 +16,7 @@ function ImageComponent({ src, blur }) {
     <div className="img" style={{
       position: 'relative', 
       overflow: "hidden",  
-      width: "85%",
+      width: "100%",
     }}>
       <Blurhash
         hash={blur}
