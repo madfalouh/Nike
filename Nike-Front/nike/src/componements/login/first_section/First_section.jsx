@@ -89,7 +89,7 @@ const handleClick = async () => {
         const authUri = "https://accounts.google.com/o/oauth2/auth";
         const responseType = "token";
         
-        window.location.href = `${authUri}?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=${responseType}&scope=${scope}`;
+      //  window.location.href = `${authUri}?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=${responseType}&scope=${scope}`;
 
   return (
     <div className="login-first-section-container">
@@ -103,7 +103,6 @@ const handleClick = async () => {
             Icon={Google_icon}
             text="Sign in with Google"
             textColor="black"
-            onClick = {}
           />
         </div>
 
