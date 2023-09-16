@@ -27,7 +27,7 @@ function First_Section_Register() {
   };
 
   const validatePassword = (value) => {
-    return value.length < 4 && value.length > 0 ? "Min. 4 characters" : null;
+    return value.length < 8 && value.length > 0 ? "Min. 4 characters" : null;
   };
 
   const validateNames = (value) => {
