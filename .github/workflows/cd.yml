@@ -1,0 +1,26 @@
+name: Frontend CI
+
+on:
+  push:
+    paths:
+      - 'Nike-Front/nike/**'
+  pull_request:
+    paths:
+      - 'Nike-Front/nike/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repo code
+        uses: actions/checkout@v2
+
+      - name: Install frontend dependencies
+        run: cd Nike-Front/nike && npm install
+
+      - name: Run frontend lint
+        run: cd Nike-Front/nike && npx eslint . --ext .js,.jsx,.ts,.tsx
+
+      - name: Build the frontend project
+        run: cd Nike-Front/nike && npm run build
