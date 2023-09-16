@@ -8,6 +8,8 @@ import { useNavigate } from "react-router";
 import api from "../../api";
 import { useState } from "react";
 import Button from "../button/Button";
+
+
 function First_Section_Register() {
   const [isRememberMe, setisRememberMe] = useState(false);
   const [error, setError] = useState(null);
