@@ -2,9 +2,11 @@ name: NodeJS with Webpack
 
 on:
   push:
-    branches: [ "master" ]
+    paths:
+      - 'Nike-Front/nike/**'
   pull_request:
-    branches: [ "master" ]
+    paths:
+      - 'Nike-Front/nike/**'
 
 jobs:
   build:
