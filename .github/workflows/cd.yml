@@ -18,9 +18,11 @@ jobs:
 
       - name: Install frontend dependencies
         run: cd Nike-Front/nike && npm install
-
+        
+      - name: Build the frontend project
+        run: cd Nike-Front/nike && npm run build
+        
       - name: Run frontend lint
         run: cd Nike-Front/nike && npx eslint . --ext .js,.jsx,.ts,.tsx
 
-      - name: Build the frontend project
-        run: cd Nike-Front/nike && npm run build
+
