@@ -11,7 +11,6 @@ import api from "../../../api";
 import { useNavigate } from "react-router";
 
 function First_section() {
-//first section
 
   
 
