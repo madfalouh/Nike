@@ -9,18 +9,11 @@ import axios from "axios";
 import Error from "../../Error/Error";
 import api from "../../../api";
 import { useNavigate } from "react-router";
-import GoogleLogin from "react-google-login";
 
 function First_section() {
 
 
-  const googleCredentials = {
-    client_id: "238602174686-p450h1jsld0hlvfijmqe14kj29fdjupe.apps.googleusercontent.com",
-    auth_uri: "https://accounts.google.com/o/oauth2/auth",
-    redirect_uri: "http://localhost:5173"  // You might want to have a specific endpoint for the redirect, e.g., /auth/callback
-  };
-
-
+  
 
   const [isRememberMe, setisRememberMe] = useState(false);
   const [error, setError] = useState(null);
@@ -82,12 +75,7 @@ const handleClick = async () => {
     setError(err.response.data.message);
   }
 };
-
-        const clientId = "238602174686-p450h1jsld0hlvfijmqe14kj29fdjupe.apps.googleusercontent.com";
-        const redirectUri = "http://localhost:5173/callback"; // Adjust this to wherever you handle your callback
-        const scope = "profile email"; // Add more scopes if needed
-        const authUri = "https://accounts.google.com/o/oauth2/auth";
-        const responseType = "token";
+ 
         
       //  window.location.href = `${authUri}?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=${responseType}&scope=${scope}`;
 
