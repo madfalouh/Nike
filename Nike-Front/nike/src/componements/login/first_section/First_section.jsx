@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./First_section.css";
 import Google_icon from "../../../assets/icon/google_icon/Google_icon";
 import Button from "../../button/Button";
@@ -9,6 +9,7 @@ import axios from "axios";
 import Error from "../../Error/Error";
 import api from "../../../api";
 import { useNavigate } from "react-router";
+import GoogleLogin from "react-google-login";
 
 function First_section() {
 
@@ -74,9 +75,59 @@ const handleClick = async () => {
     setError(err.response.data.message);
   }
 };
- 
-        
-      //  window.location.href = `${authUri}?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=${responseType}&scope=${scope}`;
+  const googleLoginRef = useRef();
+
+const handleGoogleClick = () => {
+  if (googleLoginRef.current) {
+    googleLoginRef.current.click();
+  } else {
+    console.error("GoogleLogin component is not yet available");
+  }
+};
+
+function handleResponse (res) {
+console.log(res);
+
+}
+
+
+useEffect(()=>{
+google.accounts.id.initialize({
+
+client_id:"238602174686-hupc7111dk4ve7hoft6im4c1ffmcfdar.apps.googleusercontent.com" , 
+callback : responseGoogle
+
+})
+
+google.accounts.id.renderButton(
+document.getElementById("signin") ,
+{theme : "outline" , size :"size" }
+)
+
+
+} , [])
+
+
+
+  const responseGoogle = async (response) => {
+console.log(response);
+
+    try {
+      if (response   ) {
+        const res = await api.post("/api/v1/auth/google-authenticate", { googleToken: response.credential });
+console.log(res);
+
+        localStorage.setItem('accessToken', res.data.accessToken);
+        localStorage.setItem('refreshToken', res.data.refreshToken);
+        // Navigate to dashboard or wherever you want after login
+       } else {
+        setError("Failed to authenticate with Google.");
+      }
+    } catch (err) {
+      console.log(err);
+      setError(err.response.data.message);
+    }
+  };        
 
   return (
     <div className="login-first-section-container">
@@ -84,12 +135,14 @@ const handleClick = async () => {
         <div className="login-section-sign-in">
           <h2>Sign In</h2>
           <p>Enter your email and password to sign in!</p>
- 
+ <div id="signin" ></div>
           <Button
             color="grey"
             Icon={Google_icon}
             text="Sign in with Google"
             textColor="black"
+            onClick={handleGoogleClick}
+
           />
         </div>
 
@@ -113,6 +166,9 @@ const handleClick = async () => {
             ></Text_Input>
           </div>
           <div className="input-password-login-wrapper">
+
+  
+
             <Text_Password
               name="password"
               text="Password"
@@ -134,7 +190,7 @@ const handleClick = async () => {
           </div>
           <div className="login-forgot-password">
             <span>
-              <Text w="124px"  onClick={()=>{naviagte("/forgot-passwordb")}}  fontWeight="500">
+              <Text w="124px"  onClick={()=>{naviagte("/forgot-password")}}  fontWeight="500">
                 Forgot password?
               </Text>
             </span>
