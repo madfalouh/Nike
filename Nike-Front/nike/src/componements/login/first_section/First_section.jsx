@@ -103,7 +103,6 @@ const handleClick = async () => {
             Icon={Google_icon}
             text="Sign in with Google"
             textColor="black"
-            onClick = {}
           />
         </div>
 

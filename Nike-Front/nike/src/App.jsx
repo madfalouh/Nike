@@ -4,9 +4,11 @@ import Login from "./pages/login/Login";
 import ForgotPassword from "./pages/forgotPassword/ForgotPassword";
 import UpdatePassword from "./pages/updatePassword/UpdatePassword";
 import RegisterPage from "./pages/register/RegisterPage";
+import Navbar from "./componements/navbar/navbar";
 function App() {
   return (
     <>
+    <Navbar></Navbar>
       <Router>
         <Routes>
           <Route path="/login" element={<Login />}></Route>
