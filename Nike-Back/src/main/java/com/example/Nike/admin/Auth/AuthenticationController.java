@@ -35,7 +35,6 @@ public class AuthenticationController {
     @ResponseBody
     public ResponseEntity  authenticate(@RequestBody User request
     ) throws WrongCredentialsException {
-        System.out.println("*************************************************************************");
         return ResponseEntity.ok().body(service.authenticate(request));
     }
 
