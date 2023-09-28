@@ -1,46 +1,47 @@
-/* styles.css */
-
-/* Navbar container */
+/* Style the navbar */
 .navbar {
-    background-color: #000; /* Background color: black */
-    color: #fff; /* Text color: white */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-  }
-  
-  /* Navbar logo */
-  .navbar-logo a {
-    color: #fff; /* Logo text color: white */
-    text-decoration: none;
-    font-size: 1.5rem; /* Logo font size */
-    font-weight: bold;
-  }
-  
-  /* Navbar menu */
-  .navbar-menu {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Navbar items */
-  .navbar-item {
-    margin-right: 20px; /* Spacing between items */
-  }
-  
-  /* Navbar item links */
-  .navbar-item a {
-    color: #fff; /* Item text color: white */
-    text-decoration: none;
-    font-size: 1rem; /* Item font size */
-    font-weight: bold;
-  }
-  
-  /* Change link color on hover */
-  .navbar-item a:hover {
-    color: #000; /* Hover color: black */
-  }
-  
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Style the logo */
+.logo img {
+  width: 40px; /* Adjust the width as needed */
+  height: auto;
+}
+
+/* Style the menu items */
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: white;
+  font-size: 14px; /* Adjust the font size as needed */
+  font-weight: 600; /* Semi-bold */
+}
+
+/* Style the icons */
+.icons a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px; /* Adjust the font size as needed */
+  margin-left: 20px;
+}
+
+/* Add font-awesome icons for cart and favorites */
+.icons a i {
+  font-size: inherit;
+}
+
+/* Style the hover effect for menu items */
+.menu li a:hover {
+  border-bottom: 2px solid white; /* Add an underline on hover */
+}
