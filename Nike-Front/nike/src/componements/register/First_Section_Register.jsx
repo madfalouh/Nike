@@ -8,6 +8,7 @@ import { useNavigate } from "react-router";
 import api from "../../api";
 import { useState } from "react";
 import Button from "../button/Button";
+import disposableEmailDomains from 'disposable-email-domains';
 
 
 function First_Section_Register() {
@@ -27,7 +28,7 @@ function First_Section_Register() {
   };
 
   const validatePassword = (value) => {
-    return value.length < 8 && value.length > 0 ? "Min. 4 characters" : null;
+    return value.length < 8 && value.length > 0 ? "Min. 8 characters" : null;
   };
 
   const validateNames = (value) => {
@@ -63,6 +64,15 @@ function First_Section_Register() {
   const { email, password, firstName, lastName } = formInput;
 
   const handleClick = async () => {
+
+        const domain = email.split('@')[1];
+
+        if (disposableEmailDomains.includes(domain)) {
+            setError('Please use a valid email domain. Disposable emails are not allowed.');
+            return;
+        }
+
+
     const emailErrorCheck = email.length === 0 ? "Email Cannot Be Empty" : null;
     const passwordErrorCheck =
       password.length === 0 ? "Password Cannot Be Empty" : null;
