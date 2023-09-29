@@ -37,7 +37,7 @@ function Text_Password(props) {
           {!show ? eyeOpen : eyeClose}{" "}
         </div>
       </div>
-      {(error || err) && (
+      {(error) && (
         <div className="err-msg" style={{ color: "#FF0000", marginTop: 5 }}> <div  className="warning-icon" ><WarningOutlinedIcon style={{color : "red" , fontSize : "17px"  , fontWeight : "400 "}}  ></WarningOutlinedIcon> </div>  <p> {error}</p></div>
       )}
     </div>

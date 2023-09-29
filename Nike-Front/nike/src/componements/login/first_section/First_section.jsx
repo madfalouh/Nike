@@ -10,6 +10,7 @@ import Error from "../../Error/Error";
 import api from "../../../api";
 import { useNavigate } from "react-router";
 import GoogleLogin from "react-google-login";
+import disposableEmailDomains from 'disposable-email-domains';
 
 function First_section() {
 
@@ -54,6 +55,15 @@ function First_section() {
   const { email, password } = formInput;
 
 const handleClick = async () => {
+
+        const domain = email.split('@')[1];
+
+        if (disposableEmailDomains.includes(domain)) {
+            setError('Please use a valid email domain. Disposable emails are not allowed.');
+            return;
+        }
+
+
   const emailErrorCheck = email.length === 0 ? "Email Cannot Be Empty" : null;
   const passwordErrorCheck =
     password.length === 0 ? "Password Cannot Be Empty" : null;
@@ -175,6 +185,8 @@ console.log(res);
               value={password}
               handleChange={handleChange}
               error={passwordError}
+              errorLogin={error}
+
             />
           </div>
         </div>
