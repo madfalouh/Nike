@@ -49,8 +49,11 @@ public class JwtService {
 
     public String generateRefreshToken(
             UserDetails userDetails
+            , boolean isRememberMe
     ) {
-        return buildToken(new HashMap<>(), userDetails, refreshExpiration);
+       System.out.println("*********hbbhbjbjbjbjhbhujbbyuhjuibjhvbj*****************************************************************");
+   System.out.print(isRememberMe) ;
+        return buildToken(new HashMap<>(), userDetails,  ( isRememberMe ?  refreshExpiration*10  : refreshExpiration )  );
     }
 
     private String buildToken(

@@ -9,7 +9,7 @@ import axios from "axios";
 import Error from "../../Error/Error";
 import api from "../../../api";
 import { useNavigate } from "react-router";
-import disposableEmailDomains from "disposable-email-domains";
+import disposableEmailDomains from 'disposable-email-domains';
 
 function First_section() {
   const [isRememberMe, setisRememberMe] = useState(false);

@@ -16,6 +16,7 @@ public class CustomAccessDeniedHandler implements AuthenticationEntryPoint {
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException {
 
         System.out.println(authException);
+        System.out.println("**********************************************************");
 
         response.setContentType("application/json;charset=UTF-8");
         response.setStatus(HttpServletResponse.SC_FORBIDDEN);
