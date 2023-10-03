@@ -4,6 +4,7 @@ import com.example.Nike.admin.Exception.WrongCredentialsException;
 import com.example.Nike.admin.Rsponse.AuthenticationResponse;
 import com.example.Nike.admin.Controller.AuthenticationService;
 import com.example.Nike.admin.Entity.User;
+import com.example.Nike.admin.Security.JwtService;
 import com.example.Nike.admin.service.GoogleService;
 import com.example.Nike.request.GoogleAuthRequest;
 import jakarta.servlet.http.HttpServletRequest;
@@ -22,6 +23,8 @@ public class AuthenticationController {
 
     private final AuthenticationService service;
     private final GoogleService googleService ;
+
+    private final JwtService jwtService ;
 
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register(@RequestBody User request) throws UserAlreadyExistException {
@@ -43,10 +46,14 @@ public class AuthenticationController {
 
 
     @PostMapping("/google-authenticate")
-    public ResponseEntity authenticateWithGoogle(@RequestBody GoogleAuthRequest request) throws WrongCredentialsException, Exception {
+    public AuthenticationResponse authenticateWithGoogle(@RequestBody GoogleAuthRequest request) throws WrongCredentialsException, Exception {
         String emailFromGoogle = googleService.verifyGoogleToken(request.getGoogleToken());
         User user =  googleService.verifyUserOrRegisterWithGoogle(emailFromGoogle , request.getGoogleToken()) ;
-        return ResponseEntity.ok().body( service.authenticate(user));
+        var jwtToken = jwtService.generateToken(user);
+
+        return AuthenticationResponse.builder()
+                .accessToken(jwtToken)
+                .build();
 
     }
 
