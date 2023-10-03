@@ -187,14 +187,14 @@ return  null ;
 
 
     public String generateContent(String link) {
-        return "<div style='font-family: Arial, sans-serif; color: #333; padding: 20px; background-color: #e0e0e0;'>"
-                + "<div style='background-color: #f9f9f9; padding: 20px;'>"
-                + "<div style='background-color: #f5f5f5; padding: 20px;'>"
+        return "<div style='font-family: Arial, sans-serif; color: #fff; padding: 20px; background-color: #000;'>"
+                + "<div style='background-color: #111; padding: 20px;'>"
+                + "<div style='background-color: #222; padding: 20px;'>"
                 + "<h1 style='text-align: center;'><img src='https://i.imgur.com/PFCvKjk.png' alt='Nike' style='max-width: 100px;'></h1>"
                 + "<p style='font-size: 20px; text-align: center;'>Champion, let's lace up and leap forward!</p>"
                 + "<p>Every athlete, from beginners to pros, faces challenges. Forgetting your password? Just a tiny hurdle. We're here to hand you the baton and get you back on track.</p>"
                 + "<div style='text-align: center; margin: 30px 0;'>"
-                + "<a style='background-color: #000; padding: 14px 24px; color: #fff; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 18px;' href=\"" + link + "\">Reset &amp; Run</a>"
+                + "<a style='background-color: #fff; color: #000; padding: 14px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 18px;' href=\"" + link + "\">Reset &amp; Run</a>"
                 + "</div>"
                 + "<p>This link will expire in 5 minutes.</p>"
                 + "<p>Remember, every setback is a setup for a comeback. If this wasn't you, no sweat - just sidestep this email and continue your journey.</p>"
@@ -204,6 +204,8 @@ return  null ;
                 + "<p style='text-align: center; font-size: 12px; color: #888;'>Need help? Contact our support.</p>"
                 + "</div></div></div>";
     }
+
+
 
 
 
