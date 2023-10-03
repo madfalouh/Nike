@@ -9,7 +9,6 @@ import axios from "axios";
 import Error from "../../Error/Error";
 import api from "../../../api";
 import { useNavigate } from "react-router";
-import GoogleLogin from "react-google-login";
 import disposableEmailDomains from 'disposable-email-domains';
 
 function First_section() {
