@@ -59,5 +59,16 @@ public class GlobalExceptionHandler {
     }
 
 
+    @ExceptionHandler(TokenGenerationException.class)
+    public ResponseEntity<Object> handleWrongCredentialsException(TokenGenerationException ex) {
+        CustomMessageException customMessageException = new CustomMessageException(
+                "Can't Check the credentials or the link is expired",
+                ex,
+                HttpStatus.UNAUTHORIZED,
+                ZonedDateTime.now(ZoneId.of("Z"))
+        );
+        return new ResponseEntity<>(customMessageException, HttpStatus.UNAUTHORIZED);
+    }
+
 
 }

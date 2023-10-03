@@ -40,9 +40,7 @@ function ForgotPassword() {
   if (emailError  ) {
     return;
   }
-
-
-console.log("hvbhdvchdchdc");
+    setForgot(true);
 
     await axios({
       method: "post",
@@ -50,14 +48,13 @@ console.log("hvbhdvchdchdc");
       data: { email: email },
       headers: { "content-type": "application/json" },
     })
-      .then(() => {
-        setForgot(true);
-      })
+     
       .catch((err) => {
           setError(err.response.data.message);
 
       });
   };
+
 
   return (
     <>
@@ -133,7 +130,6 @@ console.log("hvbhdvchdchdc");
                     text="Email"
                     placeholder="name@exemple.com"
                     handleChange={handleChange}
-                    errorLogin={error}
                     error={emailError}
                   ></Text_Input>
                 </div>

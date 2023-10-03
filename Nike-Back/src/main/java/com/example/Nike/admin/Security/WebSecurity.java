@@ -1,6 +1,8 @@
 package com.example.Nike.admin.Security;
 
 import com.example.Nike.admin.Exception.CustomAccessDeniedHandler;
+import com.example.Nike.admin.config.CustomSuccessHandler;
+import com.example.Nike.admin.service.UserOAuth2UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -19,6 +21,8 @@ import org.springframework.security.web.authentication.logout.LogoutHandler;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static org.springframework.http.HttpMethod.*;
+
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
@@ -31,8 +35,16 @@ public class WebSecurity {
 
     @Autowired
     private CustomAccessDeniedHandler accessDeniedHandler;
+
+    @Autowired
+    private CustomSuccessHandler successHandler ;
+
+    @Autowired
+    private UserOAuth2UserService userOAuth2UserService  ;
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+
 
         http
                 .csrf()
@@ -42,6 +54,8 @@ public class WebSecurity {
                 .authorizeHttpRequests()
                 .requestMatchers(
                         "/api/v1/auth/**",
+                        "/reset_password",
+                        "/api/v1/reset-password/**" ,
                         "/v2/api-docs",
                         "/v3/api-docs",
                         "/v3/api-docs/**",
@@ -51,9 +65,12 @@ public class WebSecurity {
                         "/configuration/security",
                         "/swagger-ui/**",
                         "/webjars/**",
-                        "/swagger-ui.html"
+                        "/swagger-ui.html",
+                        "/api/v1/reset-password/**"
                 )
+
                 .permitAll()
+
 
 
       /*          .requestMatchers("/api/v1/management/**").hasAnyRole(ADMIN.name(), MANAGER.name())
@@ -65,12 +82,12 @@ public class WebSecurity {
                 .requestMatchers(DELETE, "/api/v1/management/**").hasAnyAuthority(ADMIN_DELETE.name(), MANAGER_DELETE.name()) */
 
 
-                /* .requestMatchers("/api/v1/admin/**").hasRole(ADMIN.name())
+                 .requestMatchers("/api/v1/admin/**").hasRole("Admin")
 
-                 .requestMatchers(GET, "/api/v1/admin/**").hasAuthority(ADMIN_READ.name())
-                 .requestMatchers(POST, "/api/v1/admin/**").hasAuthority(ADMIN_CREATE.name())
-                 .requestMatchers(PUT, "/api/v1/admin/**").hasAuthority(ADMIN_UPDATE.name())
-                 .requestMatchers(DELETE, "/api/v1/admin/**").hasAuthority(ADMIN_DELETE.name())*/
+                 .requestMatchers(GET, "/api/v1/admin/**").hasAuthority("Admin")
+                 .requestMatchers(POST, "/api/v1/admin/**").hasAuthority("Admin")
+                 .requestMatchers(PUT, "/api/v1/admin/**").hasAuthority("Admin")
+                 .requestMatchers(DELETE, "/api/v1/admin/**").hasAuthority("Admin")
                 .requestMatchers("/api/v1/admin/**").hasAnyAuthority("Admin")
                 .anyRequest()
                 .authenticated()
@@ -81,6 +98,14 @@ public class WebSecurity {
                 .authenticationProvider(authenticationProvider)
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
                 .exceptionHandling().authenticationEntryPoint(accessDeniedHandler)
+                .and()
+
+                .oauth2Login()
+                .loginPage("/login")
+                .successHandler(successHandler)
+                .userInfoEndpoint()
+                .userService(userOAuth2UserService)
+                .and()
                 .and()
                 .logout()
                 .logoutUrl("/api/v1/auth/logout")

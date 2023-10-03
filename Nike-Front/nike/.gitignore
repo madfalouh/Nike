@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+Nike-Back/jenkins
+../../Nike-Back/jenkins/
+jenkins/

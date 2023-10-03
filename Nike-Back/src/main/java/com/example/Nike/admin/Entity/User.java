@@ -31,6 +31,7 @@ public class User implements UserDetails {
     @Column( name = "last_name" , length =  64 , nullable = false )
     private String secondName ;
     private boolean enabled  ;
+    private boolean rememberMe = false;
     @Column(length =  64 )
 
     private  String photos ;
@@ -47,6 +48,7 @@ public class User implements UserDetails {
     @JsonManagedReference
     private List<Token> tokens;
 
+
     @Override
     public String toString() {
         return "User{" +
@@ -56,6 +58,7 @@ public class User implements UserDetails {
                 ", firstName='" + firstName + '\'' +
                 ", secondName='" + secondName + '\'' +
                 ", enabled=" + enabled +
+                ", isRememberMe=" + rememberMe +
                 ", photos='" + photos + '\'' +
                 ", roles=" + roles +
                 ", tokens=" + tokens +
