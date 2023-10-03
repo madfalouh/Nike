@@ -12,14 +12,11 @@ import { useNavigate } from "react-router";
 import disposableEmailDomains from 'disposable-email-domains';
 
 function First_section() {
-
-  
-
   const [isRememberMe, setisRememberMe] = useState(false);
   const [error, setError] = useState(null);
   const [emailError, setEmailError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
-  const naviagte = useNavigate()
+  const naviagte = useNavigate();
 
   const validateEmail = (value) => {
     if (value.length === 0) return null;
@@ -28,7 +25,7 @@ function First_section() {
   };
 
   const validatePassword = (value) => {
-    return value.length < 4 && value.length > 0 ? "Min. 4 characters" : null;
+    return value.length < 8 && value.length > 0 ? "Min. 8 characters" : null;
   };
 
   const [formInput, setFormInput] = useState({
@@ -36,7 +33,7 @@ function First_section() {
     password: "",
     isRememberMe: isRememberMe,
   });
-
+// simple
   const handleChange = (e) => {
     const { value, name } = e.target;
 
@@ -53,90 +50,75 @@ function First_section() {
 
   const { email, password } = formInput;
 
-const handleClick = async () => {
+  const handleClick = async () => {
+    const domain = email.split("@")[1];
+console.log(disposableEmailDomains);
+    if (disposableEmailDomains.includes(domain)) {
+      setError(
+        "Please use a valid email domain. Disposable emails are not allowed."
+      );
+      return;
+    }
 
-        const domain = email.split('@')[1];
+    const emailErrorCheck = email.length === 0 ? "Email Cannot Be Empty" : null;
+    const passwordErrorCheck =
+      password.length === 0 ? "Password Cannot Be Empty" : null;
 
-        if (disposableEmailDomains.includes(domain)) {
-            setError('Please use a valid email domain. Disposable emails are not allowed.');
-            return;
-        }
+    if (emailErrorCheck || passwordErrorCheck) {
+      setEmailError(emailErrorCheck);
+      setPasswordError(passwordErrorCheck);
+      return;
+    }
+    if (emailError || passwordError) {
+      return;
+    }
+    try {
+      const res = await api.post("/api/v1/auth/authenticate", {
+        email,
+        password,
+        rememberMe: isRememberMe,
+      });
+      localStorage.setItem("accessToken", res.data.accessToken);
+      localStorage.setItem("refreshToken", res.data.refreshToken);
+    } catch (err) {
+      console.log(err);
+      setError(err.response.data.message);
+    }
+  };
 
+  useEffect(() => {
+    google.accounts.id.initialize({
+      client_id:
+        "238602174686-hupc7111dk4ve7hoft6im4c1ffmcfdar.apps.googleusercontent.com",
+      callback: responseGoogle,
+    });
 
-  const emailErrorCheck = email.length === 0 ? "Email Cannot Be Empty" : null;
-  const passwordErrorCheck =
-    password.length === 0 ? "Password Cannot Be Empty" : null;
-
-  if (emailErrorCheck || passwordErrorCheck) {
-    setEmailError(emailErrorCheck);
-    setPasswordError(passwordErrorCheck);
-    return;
-  }
-  if (emailError || passwordError) {
-    return;
-  }
-  try {
-    const res = await api.post("/api/v1/auth/authenticate", { email, password, rememberMe: isRememberMe });
-    localStorage.setItem('accessToken', res.data.accessToken);
-    localStorage.setItem('refreshToken', res.data.refreshToken);
-  } catch (err) {
-    console.log(err);
-    setError(err.response.data.message);
-  }
-};
-  const googleLoginRef = useRef();
-
-const handleGoogleClick = () => {
-  if (googleLoginRef.current) {
-    googleLoginRef.current.click();
-  } else {
-    console.error("GoogleLogin component is not yet available");
-  }
-};
-
-function handleResponse (res) {
-console.log(res);
-
-}
-
-
-useEffect(()=>{
-google.accounts.id.initialize({
-
-client_id:"238602174686-hupc7111dk4ve7hoft6im4c1ffmcfdar.apps.googleusercontent.com" , 
-callback : responseGoogle
-
-})
-
-google.accounts.id.renderButton(
-document.getElementById("signin") ,
-{theme : "outline" , size :"size" }
-)
-
-
-} , [])
-
-
+    google.accounts.id.renderButton(document.getElementById("signin"), {
+      theme: "outline",
+      size: "size",
+    });
+  }, []);
 
   const responseGoogle = async (response) => {
-console.log(response);
+    console.log(response);
 
     try {
-      if (response   ) {
-        const res = await api.post("/api/v1/auth/google-authenticate", { googleToken: response.credential });
-console.log(res);
+      if (response) {
+        const res = await api.post("/api/v1/auth/google-authenticate", {
+          googleToken: response.credential,
+        });
+        console.log(res);
 
-        localStorage.setItem('accessToken', res.data.accessToken);
-        localStorage.setItem('refreshToken', res.data.refreshToken);
-        // Navigate to dashboard or wherever you want after login
-       } else {
+        localStorage.setItem("accessToken", res.data.accessToken);
+        localStorage.setItem("refreshToken", res.data.refreshToken);
+      } else {
         setError("Failed to authenticate with Google.");
       }
     } catch (err) {
       console.log(err);
       setError(err.response.data.message);
     }
-  };        
+  };
 
   return (
     <div className="login-first-section-container">
@@ -144,14 +126,13 @@ console.log(res);
         <div className="login-section-sign-in">
           <h2>Sign In</h2>
           <p>Enter your email and password to sign in!</p>
- <div id="signin" ></div>
+
           <Button
             color="grey"
             Icon={Google_icon}
             text="Sign in with Google"
             textColor="black"
-            onClick={handleGoogleClick}
-
+            onClick={() => google.accounts.id.prompt()}
           />
         </div>
 
@@ -175,9 +156,6 @@ console.log(res);
             ></Text_Input>
           </div>
           <div className="input-password-login-wrapper">
-
-  
-
             <Text_Password
               name="password"
               text="Password"
@@ -185,7 +163,6 @@ console.log(res);
               handleChange={handleChange}
               error={passwordError}
               errorLogin={error}
-
             />
           </div>
         </div>
@@ -201,7 +178,13 @@ console.log(res);
           </div>
           <div className="login-forgot-password">
             <span>
-              <Text w="124px"  onClick={()=>{naviagte("/forgot-password")}}  fontWeight="500">
+              <Text
+                w="124px"
+                onClick={() => {
+                  naviagte("/forgot-password");
+                }}
+                fontWeight="500"
+              >
                 Forgot password?
               </Text>
             </span>
@@ -218,7 +201,14 @@ console.log(res);
 
         <div className="login-not-registred">
           <p>
-            Not Registered yet<span onClick={()=>{naviagte("/register")}} >Create an account</span>
+            Not Registered yet
+            <span
+              onClick={() => {
+                naviagte("/register");
+              }}
+            >
+              Create an account
+            </span>
           </p>
         </div>
       </div>

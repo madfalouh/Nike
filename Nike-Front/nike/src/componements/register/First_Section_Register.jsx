@@ -6,7 +6,7 @@ import axios from "axios";
 import Error from "../Error/Error";
 import { useNavigate } from "react-router";
 import api from "../../api";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../button/Button";
 import disposableEmailDomains from 'disposable-email-domains';
 
@@ -27,9 +27,21 @@ function First_Section_Register() {
     return !emailPattern.test(value) ? "Invalid email" : null;
   };
 
-  const validatePassword = (value) => {
-    return value.length < 8 && value.length > 0 ? "Min. 8 characters" : null;
-  };
+const validatePassword = (value) => {
+  if (value.length === 0) return null;
+  
+  const hasUpperCase = /[A-Z]/.test(value);
+  const hasLowerCase = /[a-z]/.test(value);
+  const hasDigits = /\d/.test(value);
+
+  if (value.length < 8) return "Password should be at least 8 characters.";
+  if (!hasUpperCase) return "Password should have at least one uppercase letter.";
+  if (!hasLowerCase) return "Password should have at least one lowercase letter.";
+  if (!hasDigits) return "Password should have at least one digit.";
+
+  return null;
+};
+
 
   const validateNames = (value) => {
     return value.length < 1 ? "Name should not be empty" : null;
@@ -108,6 +120,41 @@ function First_Section_Register() {
       setError(err.response.data.message);
     }
   };
+ 
+ useEffect(() => {
+    google.accounts.id.initialize({
+      client_id:
+        "238602174686-hupc7111dk4ve7hoft6im4c1ffmcfdar.apps.googleusercontent.com",
+      callback: responseGoogle,
+    });
+
+    google.accounts.id.renderButton(document.getElementById("signin"), {
+      theme: "outline",
+      size: "size",
+    });
+  }, []);
+
+  const responseGoogle = async (response) => {
+    console.log(response);
+
+    try {
+      if (response) {
+        const res = await api.post("/api/v1/auth/google-authenticate", {
+          googleToken: response.credential,
+        });
+        console.log(res);
+
+        localStorage.setItem("accessToken", res.data.accessToken);
+        localStorage.setItem("refreshToken", res.data.refreshToken);
+      } else {
+        setError("Failed to authenticate with Google.");
+      }
+    } catch (err) {
+      console.log(err);
+      setError(err.response.data.message);
+    }
+  };
+
 
   return (
     <div className="login-first-section-container">
@@ -120,6 +167,7 @@ function First_Section_Register() {
             Icon={Google_icon}
             text="Sign in with Google"
             textColor="black"
+            onClick={() => google.accounts.id.prompt()}
           />
         </div>
 
