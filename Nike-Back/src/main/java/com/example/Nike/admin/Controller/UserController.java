@@ -9,10 +9,12 @@ import com.example.Nike.admin.service.*;
 import jakarta.annotation.Nullable;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -37,16 +39,14 @@ public class UserController {
 
     @GetMapping("/admin")
     @ResponseBody
-    public ResponseEntity<UserResponse> listAll() throws UserNotFoundException {
+    public ResponseEntity listAll() throws UserNotFoundException {
         return ResponseEntity.ok().body(service.listUsers());
     }
 
     @PatchMapping ("/admin/{id}/update")
     @ResponseBody
     public ResponseEntity<?> updateUser(@PathVariable Integer id, @RequestBody() UpdateUserDTO userToUpdate) throws UserNotFoundException {
-        System.out.println("************************************************************************************************");
-        System.out.println(id);
-        User savedUser = service.updateUer(id, userToUpdate);
+        User savedUser = service.updateUser(id, userToUpdate);
         return ResponseEntity.status(HttpStatus.OK).body(savedUser);
     }
 

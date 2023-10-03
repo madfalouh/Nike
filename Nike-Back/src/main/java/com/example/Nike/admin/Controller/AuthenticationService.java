@@ -58,6 +58,7 @@ public class AuthenticationService {
                 .secondName(request.getSecondName())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))
+                .enabled(true)
                 .roles(roles)
                 .build();
 
@@ -67,7 +68,7 @@ public class AuthenticationService {
 
         var savedUser = repository.save(user);
         var jwtToken = jwtService.generateToken(user);
-        var refreshToken = jwtService.generateRefreshToken(user);
+        var refreshToken = jwtService.generateRefreshToken(user  , user.isRememberMe() );
         saveUserToken(savedUser, jwtToken);
         return AuthenticationResponse.builder()
                 .accessToken(jwtToken)
@@ -86,14 +87,16 @@ try {
     );
 }  catch (AuthenticationException ex) {
 
- throw  new WrongCredentialsException(ex.getMessage()) ;
+ throw  new WrongCredentialsException("Incorrect Username or Password or your account is disabled") ;
 }
 
 
         var user = repository.findByEmail(request.getEmail()) ;
 
         var jwtToken = jwtService.generateToken(user);
-        var refreshToken = jwtService.generateRefreshToken(user);
+        var refreshToken = jwtService.generateRefreshToken(user  , request.isRememberMe());
+
+
         saveUserToken((User) user, jwtToken);
 
 

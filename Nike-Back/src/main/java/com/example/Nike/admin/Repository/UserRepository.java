@@ -1,6 +1,7 @@
 package com.example.Nike.admin.Repository;
 
 
+import com.example.Nike.admin.Entity.ResetToken;
 import com.example.Nike.admin.Entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -30,5 +31,6 @@ public interface UserRepository  extends JpaRepository<User , Integer> {
 
     @Query("select u from User u where concat(u.id , ' ' , u.email , ' ' , u.firstName , ' ' ,"+"u.secondName) like  %:keyword%" )
      Page<User> findAll(String keyword , Pageable pageable) ;
+
 
 }
