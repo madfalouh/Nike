@@ -6,12 +6,14 @@ import Text_Input from "../../input/textInput/Text_Input";
 import Text_Password from "../../input/textPassword/Text_Password";
 import { Checkbox, Text } from "@chakra-ui/react";
 import axios from "axios";
+import { useGoogleLogin } from '@react-oauth/google';
 import Error from "../../Error/Error";
 import api from "../../../api";
 import { useNavigate } from "react-router";
-import disposableEmailDomains from 'disposable-email-domains';
+import disposableEmailDomains from "disposable-email-domains";
 
 function First_section() {
+
   const [isRememberMe, setisRememberMe] = useState(false);
   const [error, setError] = useState(null);
   const [emailError, setEmailError] = useState(false);
@@ -33,7 +35,6 @@ function First_section() {
     password: "",
     isRememberMe: isRememberMe,
   });
-// simple
   const handleChange = (e) => {
     const { value, name } = e.target;
 
@@ -48,11 +49,13 @@ function First_section() {
     setError(null);
   };
 
+
+
   const { email, password } = formInput;
 
   const handleClick = async () => {
     const domain = email.split("@")[1];
-console.log(disposableEmailDomains);
+    console.log(disposableEmailDomains);
     if (disposableEmailDomains.includes(domain)) {
       setError(
         "Please use a valid email domain. Disposable emails are not allowed."
@@ -86,18 +89,7 @@ console.log(disposableEmailDomains);
     }
   };
 
-  useEffect(() => {
-    google.accounts.id.initialize({
-      client_id:
-        "238602174686-hupc7111dk4ve7hoft6im4c1ffmcfdar.apps.googleusercontent.com",
-      callback: responseGoogle,
-    });
 
-    google.accounts.id.renderButton(document.getElementById("signin"), {
-      theme: "outline",
-      size: "size",
-    });
-  }, []);
 
   const responseGoogle = async (response) => {
     console.log(response);
@@ -120,6 +112,44 @@ console.log(disposableEmailDomains);
     }
   };
 
+ 
+
+  useEffect(() => {
+ 
+    window.google.accounts.id.initialize({
+      client_id: "238602174686-hupc7111dk4ve7hoft6im4c1ffmcfdar.apps.googleusercontent.com",
+      ux_mode: "popup",
+      callback: responseGoogle,
+    });
+
+    const createFakeGoogleWrapper = () => {
+      const googleLoginWrapper = document.createElement("div");
+      googleLoginWrapper.style.display = "none";
+      googleLoginWrapper.classList.add("custom-google-button");
+      document.body.appendChild(googleLoginWrapper);
+      
+      window.google.accounts.id.renderButton(googleLoginWrapper, {
+        type: "icon",
+        width: "200",
+      });
+
+      const googleLoginWrapperButton =
+        googleLoginWrapper.querySelector("div[role=button]");
+
+      return {
+        click: () => {
+          googleLoginWrapperButton.click();
+        },
+      };
+    };
+
+    const googleButtonWrapper = createFakeGoogleWrapper();
+
+    window.handleGoogleLogin = () => {
+      googleButtonWrapper.click();
+    };
+  }, []);
+ 
   return (
     <div className="login-first-section-container">
       <div className="login-first-section-body">
@@ -132,7 +162,7 @@ console.log(disposableEmailDomains);
             Icon={Google_icon}
             text="Sign in with Google"
             textColor="black"
-            onClick={() => google.accounts.id.prompt()}
+   onClick={window.handleGoogleLogin} 
           />
         </div>
 
