@@ -1,0 +1,29 @@
+.login-second-section-container {
+width: 100%;
+height: 100%;
+}
+
+.login-second-section-container .img {
+  border-bottom-left-radius: 25%;
+  width: 85%;
+  height: 100%;
+  float: right;
+}
+
+
+@media (max-width: 745px) {
+.login-second-section-container .img {
+  border-bottom-left-radius: 0px;
+  border-radius: 4px;
+  display: none;
+  }
+
+.login-second-section-container {
+    align-items: center;  
+    justify-content: center;  
+    display: flex;
+    float: none;
+
+}
+
+}

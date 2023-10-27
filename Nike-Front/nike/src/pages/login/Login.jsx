@@ -1,7 +1,7 @@
 import React from 'react'
 import './Login.css'
-import First_section from '../../componements/login/first_section/First_section'
-import Second_section from '../../componements/login/second_section/Second_section'
+import First_section from '../../component/login/first_section/First_section'
+import Second_section from '../../component/login/second_section/Second_section'
 import nikeShoes from '../../assets/img/login-nike.png'
 
 

@@ -1,0 +1,89 @@
+
+
+.product-section-shoes {
+padding-top: 2%;
+width: 100%;
+background-color: rgb(255, 255, 255);
+}
+
+.product-section-shoes-1  {
+display: inline-block;
+width: 47.5%;
+background-image: linear-gradient( to left , #282827 , #2b2b2b , #2d2d2c , #2e2e2e);
+height: 500px;
+ position: relative;
+}
+
+
+.product-section-shoes-2  {
+width: 47.5%;
+margin-left:48px;
+display: inline-block;
+background-color: black;
+height: 500px;
+  position: relative;
+
+}
+
+.product-section-shoes-2  img {
+
+width: 40rem;
+
+
+  position: absolute; /* position the image absolutely within its parent element */
+  top: 50%; /* move the top edge of the image down to the vertical center of the parent element */
+  left: 65%; /* move the left edge of the image to the horizontal center of the parent element */
+  transform: translate(-50%, -50%);
+}
+
+
+.product-section-shoes-1  img {
+
+width: 40rem;
+
+
+  position: absolute; /* position the image absolutely within its parent element */
+  top: 50%; /* move the top edge of the image down to the vertical center of the parent element */
+  left: 65%; /* move the left edge of the image to the horizontal center of the parent element */
+  transform: translate(-50%, -50%);
+}
+
+.trade-section {
+
+transform: translateX(-10%);
+transform: translateY(-60%);
+
+}
+
+.trade-section h4  {
+color: white;
+
+}
+
+.trade-section p  {
+color: white;
+font-weight: 200;
+width: 60%;
+line-height: 25px;
+}
+
+
+.trade-section button  {
+color: rgb(0, 0, 0);
+padding: 10px 30px;
+cursor: pointer;
+outline: none;
+border-radius:40px;
+font-weight: 600;
+}
+
+.product-section-shoes  h2 {
+margin-left: 2.5%;
+margin-bottom:  1.5%;
+font-weight: 500;
+font-size: 24px;
+line-height: 28px;
+color: #111;
+font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+
+}
