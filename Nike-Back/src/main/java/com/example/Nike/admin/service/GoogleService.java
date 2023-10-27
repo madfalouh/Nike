@@ -65,13 +65,19 @@ public class GoogleService {
         GoogleIdToken idToken = verifier.verify(tokenId);
         if (idToken != null) {
             GoogleIdToken.Payload payload = idToken.getPayload();
-
-            // Check if the user is a valid user by checking user's email
             String email = payload.getEmail();
-
-            // You can also get other information about the user like name, picture, etc.
-            // String name = (String) payload.get("name");
+            String firstName = (String) payload.get("given_name");
+            String secondName = (String) payload.get("family_name");
+            System.out.print(payload);
+            String password = "GoogleAuthPassword" ;
             // String pictureUrl = (String) payload.get("picture");
+            User user = new User() ;
+            user.setPassword(password);
+            user.setSecondName(secondName);
+            user.setEmail(email);
+            user.setFirstName(firstName);
+            user.setEnabled(true);
+            repository.save(user) ;
 
             return email;
         } else {
