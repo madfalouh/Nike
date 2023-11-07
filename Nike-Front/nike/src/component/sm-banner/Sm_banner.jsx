@@ -16,7 +16,7 @@ function Sm_banner() {
           <img
             data-qa="image-media-img"
             alt="Nike. Just Do It"
-            class="_32IPZERI _3jm9Bm_E guL_1FMX"
+            className="_32IPZERI _3jm9Bm_E guL_1FMX"
             src="https://static.nike.com/a/images/f_auto/dpr_1.0,cs_srgb/w_906,c_limit/23645cc6-be3b-426b-8611-a9c9fb79d2ef/nike-just-do-it.jpg"
             data-landscape-url="https://static.nike.com/a/images/f_auto,cs_srgb/w_960,c_limit/23645cc6-be3b-426b-8611-a9c9fb79d2ef/nike-just-do-it.jpg"
             data-portrait-url="https://static.nike.com/a/images/f_auto,cs_srgb/w_960,c_limit/23645cc6-be3b-426b-8611-a9c9fb79d2ef/nike-just-do-it.jpg"
@@ -33,7 +33,7 @@ function Sm_banner() {
           <img
             data-qa="image-media-img"
             alt="Nike. Just Do It"
-            class="_32IPZERI _3jm9Bm_E guL_1FMX"
+            className="_32IPZERI _3jm9Bm_E guL_1FMX"
             src="https://static.nike.com/a/images/f_auto/dpr_1.0,cs_srgb/w_906,c_limit/7dcb2154-db64-4627-ad41-3f385a9b8240/nike-just-do-it.jpg"
             data-landscape-url="https://static.nike.com/a/images/f_auto,cs_srgb/w_960,c_limit/7dcb2154-db64-4627-ad41-3f385a9b8240/nike-just-do-it.jpg"
             data-portrait-url="https://static.nike.com/a/images/f_auto,cs_srgb/w_960,c_limit/7dcb2154-db64-4627-ad41-3f385a9b8240/nike-just-do-it.jpg"

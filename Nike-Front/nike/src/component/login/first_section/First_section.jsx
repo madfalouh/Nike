@@ -6,14 +6,13 @@ import Text_Input from "../../input/textInput/Text_Input";
 import Text_Password from "../../input/textPassword/Text_Password";
 import { Checkbox, Text } from "@chakra-ui/react";
 import axios from "axios";
-import { useGoogleLogin } from '@react-oauth/google';
+import { useGoogleLogin } from "@react-oauth/google";
 import Error from "../../Error/Error";
 import api from "../../../api";
 import { useNavigate } from "react-router";
 import disposableEmailDomains from "disposable-email-domains";
 
 function First_section() {
-
   const [isRememberMe, setisRememberMe] = useState(false);
   const [error, setError] = useState(null);
   const [emailError, setEmailError] = useState(false);
@@ -48,8 +47,6 @@ function First_section() {
 
     setError(null);
   };
-
-
 
   const { email, password } = formInput;
 
@@ -89,8 +86,6 @@ function First_section() {
     }
   };
 
-
-
   const responseGoogle = async (response) => {
     console.log(response);
 
@@ -112,12 +107,10 @@ function First_section() {
     }
   };
 
- 
-
   useEffect(() => {
- 
     window.google.accounts.id.initialize({
-      client_id: "238602174686-hupc7111dk4ve7hoft6im4c1ffmcfdar.apps.googleusercontent.com",
+      client_id:
+        "238602174686-hupc7111dk4ve7hoft6im4c1ffmcfdar.apps.googleusercontent.com",
       ux_mode: "popup",
       callback: responseGoogle,
     });
@@ -127,7 +120,7 @@ function First_section() {
       googleLoginWrapper.style.display = "none";
       googleLoginWrapper.classList.add("custom-google-button");
       document.body.appendChild(googleLoginWrapper);
-      
+
       window.google.accounts.id.renderButton(googleLoginWrapper, {
         type: "icon",
         width: "200",
@@ -149,7 +142,7 @@ function First_section() {
       googleButtonWrapper.click();
     };
   }, []);
- 
+
   return (
     <div className="login-first-section-container">
       <div className="login-first-section-body">
@@ -162,7 +155,7 @@ function First_section() {
             Icon={Google_icon}
             text="Sign in with Google"
             textColor="black"
-   onClick={window.handleGoogleLogin} 
+            onClick={window.handleGoogleLogin}
           />
         </div>
 

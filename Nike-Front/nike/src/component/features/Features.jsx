@@ -6,7 +6,7 @@ import sn2 from "../../assets/img/sn2.png";
 import jordan from "../../assets/img/jordan.png";
 import converse from "../../assets/img/converse.png";
 import golfLogo from "../../assets/img/golf.png";
-import snIm from "../../assets/img/nbn.png"
+import snIm from "../../assets/img/nbn.png";
 function Features() {
   return (
     <div className="feature">
@@ -17,38 +17,35 @@ function Features() {
       <div className="just-do-it-inner-section">
         <div className="sn-details">
           <div className="sn-detail">
-            <p>
+            <p className="sn-detail-desc">
               {" "}
-              Lorem ipsum, dolor sit amet consectetur
-              <br /> adipisicing elit. Adipisci dolores amet
-              <br /> asperiores the ewelence of the best <br></br> and always
-              learn from the best{" "}
+              Elevate your game, embrace the journey with Nike.
+              <br /> Crafted excellence, enduring passion.
+              <br /> Soar with innovation – where legends are made. <br></br>{" "}
+              Inspired by the greatest, for the greatest.{" "}
             </p>
 
-            <img src={jordan}></img>
-            <img src={converse}></img>
-            <img src={golfLogo}></img>
+            <img className="jordan" src={jordan}></img>
+            <img className="converse" src={converse}></img>
+            <img className="golf" src={golfLogo}></img>
 
             <div className="sn2-detail">
-           <p>Select size and shop now</p>
+              <p>Select size and shop now</p>
               <ul>
                 <li> 4K </li>
 
                 <li>5K</li>
                 <li>6K</li>
- <li>7K</li>
- <li>8K</li>
- <li>9K</li>
- <li>10K</li>
+                <li>7K</li>
+                <li>8K</li>
+                <li>9K</li>
+                <li>10K</li>
               </ul>
             </div>
 
-           <div className="sn2-detail-image" >
-
-        <img src={snIm} ></img>
-</div>
-
-
+            <div className="sn2-detail-image">
+              <img src={snIm}></img>
+            </div>
           </div>
         </div>
 

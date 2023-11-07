@@ -1,5 +1,5 @@
 import React from "react";
- 
+
 import FeauturedProducts from "../../component/featuredProducts/FeauturedProducts";
 import Features from "../../component/features/Features";
 import LastBanner from "../../component/lastBanner/LastBanner";
@@ -7,19 +7,20 @@ import NewArrivals from "../../component/NewArrivals/NewArrivals";
 import Sm_banner from "../../component/sm-banner/Sm_banner";
 import WelcomSection from "../../component/welcome-section/WelcomSection";
 import NavBar from "../../component/navbar/NavBar";
+import Footer from "../../component/footer/Footer";
 function WelcomePage() {
-
-//component
+  //component
 
   return (
     <>
-    <NavBar></NavBar>
+      <NavBar></NavBar>
       <WelcomSection></WelcomSection>
       <Features></Features>
       <FeauturedProducts></FeauturedProducts>
-       <NewArrivals></NewArrivals>
+      <NewArrivals></NewArrivals>
       <Sm_banner></Sm_banner>
       <LastBanner></LastBanner>
+      <Footer></Footer>
     </>
   );
 }

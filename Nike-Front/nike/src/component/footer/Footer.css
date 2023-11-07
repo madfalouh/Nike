@@ -1,0 +1,60 @@
+.footer-container {
+  background-color: #111; /* Dark background */
+  color: #767676; /* Grey text color */
+  font-size: 12px; /* Smaller font size for the footer text */
+  line-height: 1.6; /* Adjust line spacing */
+  padding: 40px 0; /* Vertical padding */
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around; /* Space out footer sections */
+  flex-wrap: wrap; /* Wrap onto the next line if not enough space */
+  max-width: 1200px; /* Max width of the footer content */
+  margin: 0 auto; /* Center the footer content */
+  padding: 0 20px; /* Padding on the sides */
+}
+
+.footer-section {
+  margin-bottom: 20px; /* Space between sections */
+}
+
+.footer-section h5 {
+  margin-bottom: 10px; /* Space under the section title */
+  color: #fff; /* White color for the section titles */
+  font-size: 16px; /* Size of the section titles */
+}
+
+.footer-link {
+  display: block; /* Each link in its own line */
+  color: inherit; /* Grey text color */
+  text-decoration: none; /* No underlines on links */
+  margin-bottom: 8px; /* Space between links */
+}
+
+.footer-link:hover {
+  color: #fff; /* White on hover */
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #333; /* Separator line */
+  padding-top: 20px; /* Space between line and text */
+  margin-top: 40px; /* Space above the line */
+  color: #767676; /* Grey text color for bottom */
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    justify-content: center;
+  }
+  .footer-section {
+    margin: 0 10px; /* Spacing on mobile */
+  }
+  .footer-section h5 {
+    font-size: 14px; /* Slightly smaller section titles on mobile */
+  }
+  .footer-bottom {
+    font-size: 10px; /* Smaller font size for the bottom text on mobile */
+  }
+}

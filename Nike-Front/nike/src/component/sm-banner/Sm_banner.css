@@ -1,104 +1,140 @@
 .sm-banner {
-display: flex;
+    display: flex;
 
-flex-direction: column;
-gap: 20px;
-background-color: rgb(255, 255, 255);
+    flex-direction: column;
+    gap: 20px;
+    background-color: rgb(255, 255, 255);
 }
 
-.sm-banner  h2  {
-margin-left: 2.5%;
+.sm-banner h2 {
+    margin-left: 2.5%;
     margin-bottom: 1.5%;
     font-weight: 500;
     font-size: 24px;
     line-height: 28px;
     color: #111;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 
 .sm-imgs {
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 20px;
-background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color: rgb(255, 255, 255);
 }
 
 .sm-imgs .img-1 img {
 
-width:  100%;
+    width: 100%;
 
 }
 
 .sm-imgs .img-1 {
-width: 47%;
+    width: 47%;
 
 }
 
 
 .sm-imgs .img-2 img {
 
-width:  100%;
+    width: 100%;
 
 }
 
 .sm-imgs .img-2 {
-width: 47%;
+    width: 47%;
 
 }
 
 .img-1 {
 
-position: relative;
+    position: relative;
 }
 
 .img-2 {
 
-position: relative;
+    position: relative;
 }
 
 .img-shop {
-width: 100%;
-position: absolute;
+    width: 100%;
+    position: absolute;
+    top: 78%;
+    left: 5%;
+    display: grid;
+    gap: 20px;
+    flex-direction: column;
 
-top: 78%;
-left: 5%;
-display: grid;
+    justify-content: flex-start;
 
-flex-direction: column;
-
-justify-content: flex-start;
-
-align-items: flex-start;
+    align-items: flex-start;
 
 }
 
 
 .img-shop h2 {
-width: 100%;
-} 
+    width: 100%;
+}
 
 .img-shop p {
-line-height: 1px;
-margin-left: 2%;
-font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-color: #111;
-font-weight: 500;
-font-size: 16px;
+    line-height: 1px;
+    margin-left: 2%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #111;
+    font-weight: 500;
+    font-size: 16px;
 
 }
 
 .img-shop button {
-color: aliceblue;
-border-radius: 25px;
-background-color: #111;
-padding: 10px 15px;
-width: 30%;
-outline: none;
-border: none;
-font-size: 16px;
-margin-top: 8%;
-font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-font-weight: 500;
+    color: aliceblue;
+    border-radius: 25px;
+    background-color: #111;
+    padding: 10px 15px;
+    width: 30%;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
 }
+
+@media (max-width: 1000px) {
+
+    .sm-imgs {
+
+        flex-direction: column;
+    }
+
+    .sm-imgs .img-1 {
+        width: 95%;
+
+    }
+
+
+    .sm-imgs .img-2 {
+        width: 95%;
+
+    }
+.img-shop p {
+display: none;
+}
+
+.img-shop {
+gap: 10px;
+}
+
+}
+
+
+@media (max-width: 1000px) {
+
+.img-shop {
+    width: 100%;
+    position: absolute;
+    top: 72%;
+    left: 5%;
+
+}}

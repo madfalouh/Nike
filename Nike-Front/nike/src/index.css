@@ -3,4 +3,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;500;800&family=Merriweather+Sans:ital,wght@1,800&family=Mulish:wght@800&display=swap');
 :root {
 font-family: "DM Sans";
+overflow-x: hidden;
 }

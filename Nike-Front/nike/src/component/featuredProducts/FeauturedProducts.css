@@ -7,9 +7,8 @@ background-color: rgb(255, 255, 255);
 }
 
 .product-section-shoes-1  {
-display: inline-block;
 width: 47.5%;
-background-image: linear-gradient( to left , #282827 , #2b2b2b , #2d2d2c , #2e2e2e);
+ background: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%); ;
 height: 500px;
  position: relative;
 }
@@ -18,35 +17,27 @@ height: 500px;
 .product-section-shoes-2  {
 width: 47.5%;
 margin-left:48px;
-display: inline-block;
-background-color: black;
+background-color: rgba(164,183,185,255);
 height: 500px;
   position: relative;
 
 }
 
 .product-section-shoes-2  img {
+float: right;
+width: 30rem;
 
-width: 40rem;
 
-
-  position: absolute; /* position the image absolutely within its parent element */
-  top: 50%; /* move the top edge of the image down to the vertical center of the parent element */
-  left: 65%; /* move the left edge of the image to the horizontal center of the parent element */
-  transform: translate(-50%, -50%);
 }
 
 
 .product-section-shoes-1  img {
-
+position: absolute;
+top: 40%;
+  left: 50%;
+   transform: translate(-50%, -50%);
 width: 40rem;
-
-
-  position: absolute; /* position the image absolutely within its parent element */
-  top: 50%; /* move the top edge of the image down to the vertical center of the parent element */
-  left: 65%; /* move the left edge of the image to the horizontal center of the parent element */
-  transform: translate(-50%, -50%);
-}
+ }
 
 .trade-section {
 
@@ -85,5 +76,125 @@ font-size: 24px;
 line-height: 28px;
 color: #111;
 font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+
+}
+
+
+
+.product-section-shoes-1 {
+ gap: 50px;
+flex-direction: column-reverse;
+justify-content: center;
+align-items: center;
+}
+.color-selector {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+     transform: translate(-50%, -50%);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; 
+  padding: 10px 0;  
+
+}
+
+.color-circle {
+  cursor: pointer;
+  width: 30px;  
+  height: 30px;  
+  border-radius: 50%;  
+  gap: 20px;
+  display: inline-block;
+}
+
+.color-circle:hover {
+  border-color: #aaa;  
+}
+
+.color-button-yellow-black {
+  background: linear-gradient(135deg, #FFFF00 50%, #000000 50%);
+}
+
+/* Button with a gradient from blue to white */
+.color-button-blue-white {
+  background: linear-gradient(135deg, #0000FF 50%, #FFFFFF 50%);
+  color: #333; /* Ensuring text is visible on the white */
+}
+
+/* Button with a gradient from black to white */
+.color-button-black-white {
+  background: linear-gradient(135deg, #000000 50%, #FFFFFF 50%);
+}
+
+/* Button with a gradient from white to red */
+.color-button-white-red {
+  background: linear-gradient(135deg, #FFFFFF 50%, #FF0000 50%);
+  color: #333; /* Ensuring text is visible on the white */
+}
+
+.product-section-shoes-wrapper {
+display: flex;
+flex-direction: row;
+
+}
+.welcome-write-section-text h1 {
+font-size: 1.7rem;
+width: 75%;
+font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+color: rgb(255, 255, 255);
+}
+
+.welcome-write-section-text button {
+width: 50%;
+margin-left: 60px;
+font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+font-weight: 500;
+}
+
+.welcome-write-section-text {
+margin-top: 20%;
+display: flex;
+flex-direction: column;
+gap: 40px;
+}
+
+
+@media (max-width: 1000px) {
+
+.product-section-shoes-wrapper {
+justify-content: center;
+align-items: center;
+flex-direction: column;
+width: 100%;
+gap: 30px;
+
+}
+
+
+.product-section-shoes-1  { 
+width: 95%;
+}
+
+
+.product-section-shoes-2  {
+width: 95%;
+margin-left:0px;
+
+}
+
+
+
+}
+
+@media (max-width: 500px) {
+
+ .welcome-write-section-text button {
+width: 60%;
+ }
+
+
 
 }
