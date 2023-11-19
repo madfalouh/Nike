@@ -1,0 +1,133 @@
+.product-page-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.product-page-wrapper {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.product-page-wrapper img {
+    width: 100%;
+    height: 55%;
+    border-radius: 10px;
+    margin-top: 15%;
+}
+
+.product-page-img-wrapper {
+    width: 45%;
+    height: 100%;
+}
+
+.product-page-info-title {
+    margin-top: 16%;
+
+}
+
+.product-page-info-title h1 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    font-family: 'Helvetica Now Display Medium', Helvetica, Arial, sans-serif;
+}
+
+.product-page-info-title p {
+    font-size: 1rem;
+    font-family: 'Helvetica Now Display Medium', Helvetica, Arial, sans-serif;
+    color: #838080;
+    font-family: 'Helvetica Now Display Medium', Helvetica, Arial, sans-serif;
+}
+
+.product-page-info-title p:nth-child(2) {
+    color: #838080;
+    margin-top: 2%;
+}
+
+
+.product-page-info-title p:nth-child(3) {
+    color: #000000;
+    font-family: 'Helvetica Now Display Medium', Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    margin-top: 4%;
+}
+
+.size-selector {
+    font-family: 'Helvetica Now Display Medium', Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    margin-top: 15%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    /* Adjust the gap between the boxes */
+}
+
+.size-option {
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+    padding: 9px 5px;
+    /* Padding inside the boxes */
+    text-align: center;
+    /* Centering text */
+    background-color: #fff;
+    /* Background color of the boxes */
+    cursor: pointer;
+    /* Changes the cursor to a pointer on hover */
+}
+
+.size-option:hover {
+    border: 1px solid #000000;
+}
+
+.sizes-selector-wrapper {
+    position: relative;
+}
+
+.sizes-selector-wrapper h1 {
+    top: -10%;
+    position: absolute;
+    font-family: 'Helvetica Now Display Medium', Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.buttons-wrapper {
+    margin-top: 15%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.buttons-wrapper button {
+    padding: 25px 0px;
+    height: 60px;
+    border-radius: 30px;
+}
+
+
+
+.buttons-wrapper button:nth-child(2) {
+    border: 1px solid #eaeaea;
+}
+
+.buttons-wrapper button:nth-child(2):hover {
+    border: 1px solid #000000;
+}
+
+
+
+.dec-wrapper p {
+    margin-top: 10%;
+    width: 330px;
+    font-family: 'Helvetica Now Display Medium', Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    text-align: left;
+    font-size: 14px;
+    margin-bottom: 15%;
+ }

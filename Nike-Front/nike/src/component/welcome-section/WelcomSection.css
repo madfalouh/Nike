@@ -1,0 +1,48 @@
+ .welcome-section {
+     height: 95vh;
+     width: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-direction: row;
+   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.93) 11.2%, rgb(63, 61, 61) 78.9%);
+
+ }
+
+
+
+
+ .welcome-section h4 {
+     font-size: 2.6rem;
+     padding-bottom: 1.5rem;
+     color: rgb(255, 255, 255);
+ }
+
+
+
+ .welcome-section p {
+     font-size: 0.9rem;
+     font-weight: 200;
+     width: 60%;
+     color: rgb(255, 255, 255);
+     line-height: 30px;
+ }
+
+ .welcome-image-section {
+    width: 90%;
+     height: 100%;
+ }
+
+ .welcome-write-section {
+     position: absolute;
+     top: 38%;
+     left: 10%;
+
+ }
+
+
+ @media (max-width: 730px) {
+     .welcome-image-section {
+         width: 100%;
+     }
+ }

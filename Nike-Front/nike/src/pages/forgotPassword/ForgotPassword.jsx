@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./ForgotPassword.css";
-import Text_Input from "../../componements/input/textInput/Text_Input";
-import Button from "../../componements/button/Button";
+import Text_Input from "../../component/input/textInput/Text_Input";
+import Button from "../../component/button/Button";
 import { Text } from "@chakra-ui/react";
 import nikeLogo from "../../assets/img/nikeBlack.png";
 import axios from "axios";

@@ -1,0 +1,52 @@
+.login-button-modified {
+display: inline-flex;
+align-items: center;
+gap: 10px;
+justify-content: center;
+outline: none;
+border: none;
+height: 45px;
+font-size: 0.88rem;
+border-radius: 6px;
+cursor: pointer;
+transition:.3s ease all;
+font-weight: 500;
+width: 100%;
+}
+
+
+.color-grey{
+background-color: #F4F7FE;
+}
+
+.color-grey:hover{
+background-color: #E9EDF7;
+}
+
+
+.color-blue{
+background-color: #422AFB;
+}
+.color-blue:hover{
+background-color: #3311DB;
+}
+
+
+.text-color-white {
+color: white;
+}
+
+
+.text-color-black {
+color: black;
+}
+ 
+
+.color-black{
+background-color: black;
+}
+
+
+.color-black:hover {
+background-color: #333333;
+}

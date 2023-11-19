@@ -1,0 +1,141 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css");
+@import "react-alice-carousel/lib/alice-carousel.css";
+
+
+ 
+
+.slider-wrap {
+
+position: fixed;
+
+top: 0;
+}
+
+
+
+.carousel {
+  position: relative;
+  width: 95%;
+  height: fit-content; 
+  margin: 0 auto;
+}
+
+.carousel-content {
+  position: relative;
+  overflow: hidden;
+  transition: width .4s;
+ 
+}
+
+.slide {
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  z-index: 1;
+  padding-left: 10px;
+  transform: translateX(100px);
+  transition: left .4s cubic-bezier(.47,.13,.15,.89);
+}
+
+
+
+
+.nav {
+  position: absolute;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  z-index: 2;
+  cursor: pointer;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  color: white;
+ 
+}
+
+.nav-left {
+  left: 15px;
+}
+
+.nav-right {
+  right: 45px;
+}
+
+.carousel-arrow-icon-left {
+  background-color: #ffffff; /* Change the background color */
+  width: 40px; /* Change the width */
+  height: 40px; /* Change the height */
+  border-radius: 50%; /* Make the buttons round */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
+  margin-top: 2px;
+}
+
+
+.carousel-arrow-icon-left >* {
+margin-left: 5px;
+}
+
+.carousel-arrow-icon-right > * {
+margin-left: 5px;
+
+
+}
+
+.carousel-arrow-icon-right {
+  background-color: #ffffff; /* Change the background color */
+  width: 40px; /* Change the width */
+  height: 40px; /* Change the height */
+  border-radius: 50%; /* Make the buttons round */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+text-align: center;
+  margin-left: 7px;
+  margin-top: 2px;
+}
+
+.container {
+
+padding-top: 2%;
+
+background-color: #ffffff;
+
+}
+
+
+.container h2 {
+margin-left: 2.5%;
+margin-bottom:  1.5%;
+font-weight: 500;
+font-size: 24px;
+line-height: 28px;
+color: #111;
+font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+
+/* CSS file (e.g., NewArrivals.css) */
+.slider-elmt {
+  padding: 0 10px; /* Adjust the 10px to increase or decrease the space */
+}
+
+/* For the slick slider arrow spacing */
+.slick-prev, .slick-next {
+  z-index: 1;
+}
+
+/* Optional: if you want to ensure no image stretching */
+.slider-elmt img {
+  width: 100%;
+  height: 100%; 
+  display: block;  
+}
+
+.slider-container {
+  width: 96%;
+  margin: 0 auto; /* This will center your slider if the parent container is full width */
+}

@@ -1,0 +1,49 @@
+.open-click-container .open-description-open {
+display: none;
+
+}
+
+
+
+
+.open-click-container    .open-desc {
+display: block;
+}
+
+.open-click-container    .open-desc  .add-icon  {
+
+}
+
+
+
+.open-click-container   .title {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding-top: 20px;
+padding-bottom: 20px;
+}
+
+.open-click-container   .title  {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding-top: 20px;
+padding-bottom: 20px;
+}
+
+.add-icon {
+  transition: transform 0.5s ease;
+  cursor: pointer;
+}
+
+
+.rotate-open {
+ transform: rotate(45deg);
+
+}
+
+
+.open-click-container   .open-description-open {
+line-height: 1.5rem;
+}

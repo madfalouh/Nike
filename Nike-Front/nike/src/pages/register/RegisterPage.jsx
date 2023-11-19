@@ -1,7 +1,7 @@
 import React from "react";
-import Second_section from "../../componements/login/second_section/Second_section";
-import First_section from "../../componements/login/first_section/First_section";
-import First_Section_Register from "../../componements/register/First_Section_Register";
+import Second_section from "../../component/login/second_section/Second_section";
+import First_section from "../../component/login/first_section/First_section";
+import First_Section_Register from "../../component/register/First_Section_Register";
 import nikeShoes from "../../assets/img/login-nike2.png";
 
 function RegisterPage() {
