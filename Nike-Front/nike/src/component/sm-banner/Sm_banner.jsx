@@ -1,6 +1,8 @@
 import React from "react";
 import "./Sm_banner.css";
+import { useNavigate } from "react-router";
 function Sm_banner() {
+const navigate = useNavigate()
   return (
     <div className="sm-banner">
       <h2>Trending</h2>
@@ -10,7 +12,7 @@ function Sm_banner() {
           <div className="img-shop">
             <p> Style your Summer </p>
             <h2>Discover you Cold Summer</h2>
-            <button>Shop</button>
+            <button onClick={()=>{ navigate("/shop") }}  >Shop</button>
           </div>
 
           <img
@@ -28,7 +30,7 @@ function Sm_banner() {
           <div className="img-shop">
             <p> Shop your Style </p>
             <h2>Discover you Cold Summer</h2>
-            <button>Shop</button>
+            <button  onClick={()=>{ navigate("/shop") }}  >Shop</button>
           </div>
           <img
             data-qa="image-media-img"

@@ -358,3 +358,7 @@
 
 
 }
+
+.nav-bar-wrapper > img {
+cursor: pointer;
+}

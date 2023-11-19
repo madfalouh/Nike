@@ -3,10 +3,11 @@ import "./navBar.css";
 import nikeBlack from "../../assets/img/nikeLogoBack.png";
 import { Text } from "@chakra-ui/react";
 import Button from "../button/Button";
+import { useNavigate } from "react-router";
 function NavBar() {
   const [isNavBarVisible, setIsNavBarVisible] = useState(true);
   const [isSearchActive, setSearchActive] = useState(false);
-
+  const navigate = useNavigate()
   const toggleSearch = () => {
     setSearchActive(!isSearchActive);
   };
@@ -27,26 +28,26 @@ function NavBar() {
 <div className={`nav-bar-container ${isSearchActive ? 'search-active' : ''}`}>
 <div className={`white-overlay ${isSearchActive ? 'search-active' : ''}`}></div>
  <div className="nav-bar-wrapper">
-        <img src={nikeBlack}></img>
+        <img src={nikeBlack}  onClick={()=>{navigate("/")}} ></img>
         <div className="nav-bar-list">
           <ul>
             <li className="nav-sections">
-              <a>
+              <a onClick={()=>{navigate("/shop")}} >
                 <Text fontWeight="600">New&Features</Text>
               </a>
             </li>
             <li className="nav-sections">
-              <a>
+              <a onClick={()=>{navigate("/shop")}} >
                 <Text fontWeight="600">Men</Text>
               </a>
             </li>
             <li className="nav-sections">
-              <a>
+              <a onClick={()=>{navigate("/shop")}} >
                 <Text fontWeight="600">Women</Text>
               </a>
             </li>
             <li className="nav-sections">
-              <a>
+              <a onClick={()=>{navigate("/shop")}} >
                 <Text fontWeight="600">Kids</Text>
               </a>
             </li>
@@ -109,6 +110,7 @@ function NavBar() {
                 </svg>
               </button>
               <button
+                onClick={()=>{navigate("/cart")}} 
                 className="pre-search-btn delete-element"
                 data-var="vsButton"
                 aria-label="Open Search Modal"

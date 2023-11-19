@@ -8,7 +8,12 @@ import { Points, PointsMaterial, SphereGeometry } from "three";
 
 function WelcomSection() {
   const containerRect = useRef(null);
-const [hoverInfo, setHoverInfo] = useState({ show: false, info: null, x: 0, y: 0 });
+  const [hoverInfo, setHoverInfo] = useState({
+    show: false,
+    info: null,
+    x: 0,
+    y: 0,
+  });
 
   useEffect(() => {
     const scene = new THREE.Scene();
@@ -85,11 +90,11 @@ const [hoverInfo, setHoverInfo] = useState({ show: false, info: null, x: 0, y: 0
     const onScroll = (e) => {
       // This example assumes you want to move the camera along the Z-axis
       // You can adjust camera.position.x or camera.position.y for different effects
- console.log(camera);
+      console.log(camera);
     };
 
     // Add the scroll event listener
-    window.addEventListener('scroll', onScroll);
+    window.addEventListener("scroll", onScroll);
 
     const clock = new THREE.Clock();
     /*
@@ -121,7 +126,7 @@ const [hoverInfo, setHoverInfo] = useState({ show: false, info: null, x: 0, y: 0
     const lineZ = new THREE.Line(geometryZ, materialZ);
     scene.add(lineZ);
 */
-let particleSystem; // Define it in the outer scope so it's accessible everywhere
+    let particleSystem; // Define it in the outer scope so it's accessible everywhere
 
     function createParticles() {
       const particlesGeometry = new THREE.BufferGeometry();
@@ -149,10 +154,7 @@ let particleSystem; // Define it in the outer scope so it's accessible everywher
         color: 0xffffff,
       });
 
-       particleSystem = new THREE.Points(
-        particlesGeometry,
-        particlesMaterial
-      );
+      particleSystem = new THREE.Points(particlesGeometry, particlesMaterial);
       scene.add(particleSystem); // Add particles to the scene
     }
 
@@ -169,37 +171,35 @@ let particleSystem; // Define it in the outer scope so it's accessible everywher
     // Call the resize function initially to set up the correct sizing
     onWindowResize();
 
-
     function animate() {
       requestAnimationFrame(animate);
-if(sneakerModel){
+      if (sneakerModel) {
         sneakerModel.rotateX(0.0005);
-sneakerModel.rotateY(0.0005);
-sneakerModel.rotateZ(0.005);
-}
-  if (particleSystem) {
-    particleSystem.rotation.y += 0.001; // Rotate the whole system slightly
-
-    // For a gentle floating effect, consider adding a subtle vertical sine wave movement to the particles
-    particleSystem.geometry.attributes.position.array.forEach(
-      (value, index) => {
-        if ((index + 1) % 3 === 0) {
-          // Only affect the y (vertical) component
-          const y = value;
-          const newY = y + Math.sin(clock.getElapsedTime()) * 0.001;
-          particleSystem.geometry.attributes.position.setY(index / 3, newY);
-        }
+        sneakerModel.rotateY(0.0005);
+        sneakerModel.rotateZ(0.005);
       }
-    );
-    particleSystem.geometry.attributes.position.needsUpdate = true;
-  }
+      if (particleSystem) {
+        particleSystem.rotation.y += 0.001; // Rotate the whole system slightly
 
- 
+        // For a gentle floating effect, consider adding a subtle vertical sine wave movement to the particles
+        particleSystem.geometry.attributes.position.array.forEach(
+          (value, index) => {
+            if ((index + 1) % 3 === 0) {
+              // Only affect the y (vertical) component
+              const y = value;
+              const newY = y + Math.sin(clock.getElapsedTime()) * 0.001;
+              particleSystem.geometry.attributes.position.setY(index / 3, newY);
+            }
+          }
+        );
+        particleSystem.geometry.attributes.position.needsUpdate = true;
+      }
+
       controls.update();
       renderer.render(scene, camera);
     }
 
-/*
+    /*
 container.addEventListener("mousemove", (event) => {
   mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
   mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
@@ -229,7 +229,6 @@ container.addEventListener("mousemove", (event) => {
 });
 
 */
-
 
     animate();
 
@@ -261,13 +260,6 @@ container.addEventListener("mousemove", (event) => {
     renderer.render(scene, camera);
     let animationFrameId = requestAnimationFrame(animate);
 
-
-
-
-
-
-
- 
     // Clean up the event listener on component unmount
     return () => {
       renderer.dispose();
@@ -284,15 +276,15 @@ container.addEventListener("mousemove", (event) => {
         </p>
       </div>
 
-    {hoverInfo.show && (
-      <div
-        className="info-bubble"
-        style={{ position: 'absolute', left: hoverInfo.x, top: hoverInfo.y }}
-      >
-        <h4>{hoverInfo.info.title}</h4>
-        <p>{hoverInfo.info.description}</p>
-      </div>
-    )}
+      {hoverInfo.show && (
+        <div
+          className="info-bubble"
+          style={{ position: "absolute", left: hoverInfo.x, top: hoverInfo.y }}
+        >
+          <h4>{hoverInfo.info.title}</h4>
+          <p>{hoverInfo.info.description}</p>
+        </div>
+      )}
 
       <div
         className="welcome-image-section linear-gradient"

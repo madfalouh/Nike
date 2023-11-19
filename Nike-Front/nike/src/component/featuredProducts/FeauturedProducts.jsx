@@ -22,7 +22,7 @@ function FeauturedProducts() {
           <div className="welcome-write-section   trade-section ">
             <div className="welcome-write-section-text">
               <h1>Nike isn't just a brand, it's a statement </h1>
-             <Button color="black" text="Shope Now"  textColor="white" ></Button>
+             <Button color="black" text="Shop Now"  textColor="white"  onClick ={()=>{navigate("/shop")}} ></Button>
             </div>
           </div>
           <img src={pair}></img>
